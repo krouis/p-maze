@@ -56,6 +56,7 @@ export class CanvasRenderer {
 
     window.addEventListener('resize', this.handleResize);
     this.resize();
+    this.startLoop();
   }
 
   /**
