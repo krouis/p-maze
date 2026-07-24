@@ -177,6 +177,11 @@ input:checked + .slider {
   background-color: rgba(69, 243, 255, 0.15);
 }
 
+.switch input:focus-visible + .slider {
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.9);
+  border-color: #00d4ff;
+}
+
 input:checked + .slider::before {
   transform: translateX(24px);
   background-color: var(--wall-color);

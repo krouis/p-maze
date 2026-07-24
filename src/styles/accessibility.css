@@ -15,9 +15,11 @@
 /* Keyboard focus indicators */
 button:focus-visible,
 input:focus-visible,
-a:focus-visible {
-  outline: 3px solid var(--wall-color) !important;
-  outline-offset: 3px !important;
+a:focus-visible,
+.focusable:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.9) !important;
+  border-color: #00d4ff !important;
 }
 
 /* High contrast mode overrides */

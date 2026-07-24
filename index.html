@@ -45,17 +45,21 @@
             align-items: center;
           "
         >
-          <button id="btn-play" class="btn-pixel primary" aria-label="Play New Game">
+          <button id="btn-play" class="focusable btn-pixel primary" aria-label="Play New Game">
             🎮 Play
           </button>
 
-          <button id="btn-continue" class="btn-pixel hidden" aria-label="Continue Saved Game">
+          <button
+            id="btn-continue"
+            class="focusable btn-pixel hidden"
+            aria-label="Continue Saved Game"
+          >
             ⏩ Continue
           </button>
 
           <button
             id="btn-start-settings"
-            class="btn-pixel btn-secondary"
+            class="focusable btn-pixel btn-secondary"
             aria-label="Open Settings"
           >
             ⚙️ Settings
@@ -69,12 +73,16 @@
         <header class="game-header">
           <div id="label-level" class="level-indicator" aria-live="polite">Level 1</div>
           <div class="header-buttons">
-            <button id="btn-hint" class="btn-icon" aria-label="Show hint pathway">💡</button>
-            <button id="btn-restart" class="btn-icon" aria-label="Restart current maze">🔄</button>
-            <button id="btn-sound-toggle" class="btn-icon" aria-label="Toggle all sounds">
+            <button id="btn-hint" class="focusable btn-icon" aria-label="Show hint pathway">
+              💡
+            </button>
+            <button id="btn-restart" class="focusable btn-icon" aria-label="Restart current maze">
+              🔄
+            </button>
+            <button id="btn-sound-toggle" class="focusable btn-icon" aria-label="Toggle all sounds">
               🔊
             </button>
-            <button id="btn-pause" class="btn-icon" aria-label="Pause game">⏸️</button>
+            <button id="btn-pause" class="focusable btn-icon" aria-label="Pause game">⏸️</button>
           </div>
         </header>
 
@@ -88,7 +96,7 @@
         </section>
 
         <!-- Space holder for mobile D-pad controls -->
-        <div style="height: 120px; flex-shrink: 0; width: 100%"></div>
+        <div class="dpad-space-holder"></div>
 
         <!-- 2a. Mobile D-pad Overlay -->
         <nav class="touch-controls" aria-label="Directional pad controls">
@@ -116,16 +124,22 @@
         <div class="overlay-content">
           <h2 id="pause-title" class="section-title">Game Paused</h2>
 
-          <button id="btn-resume" class="btn-pixel primary" aria-label="Resume playing">
+          <button id="btn-resume" class="focusable btn-pixel primary" aria-label="Resume playing">
             ▶️ Resume
           </button>
-          <button id="btn-pause-restart" class="btn-pixel" aria-label="Restart current level">
+          <button
+            id="btn-pause-restart"
+            class="focusable btn-pixel"
+            aria-label="Restart current level"
+          >
             🔄 Restart
           </button>
-          <button id="btn-home" class="btn-pixel" aria-label="Return to main menu">🏠 Home</button>
+          <button id="btn-home" class="focusable btn-pixel" aria-label="Return to main menu">
+            🏠 Home
+          </button>
           <button
             id="btn-pause-settings"
-            class="btn-pixel btn-secondary"
+            class="focusable btn-pixel btn-secondary"
             aria-label="Open settings menu"
           >
             ⚙️ Settings
@@ -149,10 +163,14 @@
             You found the exit!
           </p>
 
-          <button id="btn-next" class="btn-pixel primary" aria-label="Go to next level">
+          <button id="btn-next" class="focusable btn-pixel primary" aria-label="Go to next level">
             ➡️ Next Level
           </button>
-          <button id="btn-replay" class="btn-pixel btn-secondary" aria-label="Replay this level">
+          <button
+            id="btn-replay"
+            class="focusable btn-pixel btn-secondary"
+            aria-label="Replay this level"
+          >
             🔄 Replay
           </button>
         </div>
@@ -166,7 +184,7 @@
           <div class="settings-item">
             <span class="settings-label">🎵 Music</span>
             <label class="switch">
-              <input type="checkbox" id="chk-music" checked />
+              <input type="checkbox" id="chk-music" class="focusable" checked />
               <span class="slider" aria-hidden="true"></span>
             </label>
           </div>
@@ -174,7 +192,7 @@
           <div class="settings-item">
             <span class="settings-label">🔊 Sound Effects</span>
             <label class="switch">
-              <input type="checkbox" id="chk-sfx" checked />
+              <input type="checkbox" id="chk-sfx" class="focusable" checked />
               <span class="slider" aria-hidden="true"></span>
             </label>
           </div>
@@ -182,7 +200,7 @@
           <div class="settings-item">
             <span class="settings-label">🏃 Reduced Motion</span>
             <label class="switch">
-              <input type="checkbox" id="chk-motion" />
+              <input type="checkbox" id="chk-motion" class="focusable" />
               <span class="slider" aria-hidden="true"></span>
             </label>
           </div>
@@ -190,7 +208,7 @@
           <div class="settings-item">
             <span class="settings-label">👁️ High Contrast</span>
             <label class="switch">
-              <input type="checkbox" id="chk-contrast" />
+              <input type="checkbox" id="chk-contrast" class="focusable" />
               <span class="slider" aria-hidden="true"></span>
             </label>
           </div>
@@ -198,7 +216,7 @@
           <div class="settings-item">
             <span class="settings-label">💡 Automatic Hints</span>
             <label class="switch">
-              <input type="checkbox" id="chk-hints" checked />
+              <input type="checkbox" id="chk-hints" class="focusable" checked />
               <span class="slider" aria-hidden="true"></span>
             </label>
           </div>
@@ -206,7 +224,7 @@
           <div class="settings-item">
             <span class="settings-label">⏱️ Auto Next Level</span>
             <label class="switch">
-              <input type="checkbox" id="chk-autonext" checked />
+              <input type="checkbox" id="chk-autonext" class="focusable" checked />
               <span class="slider" aria-hidden="true"></span>
             </label>
           </div>
@@ -216,7 +234,7 @@
           <div class="btn-hold-container">
             <button
               id="btn-reset-hold"
-              class="btn-pixel btn-hold"
+              class="focusable btn-pixel btn-hold"
               aria-label="Hold button for 2 seconds to reset progress"
             >
               ⚠️ Press & Hold to Reset
@@ -227,7 +245,9 @@
           </div>
         </div>
 
-        <button id="btn-settings-close" class="btn-pixel" aria-label="Close Settings">Close</button>
+        <button id="btn-settings-close" class="focusable btn-pixel" aria-label="Close Settings">
+          Close
+        </button>
 
         <!-- Privacy note for parents -->
         <footer class="parents-section">

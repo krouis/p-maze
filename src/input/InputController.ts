@@ -123,14 +123,49 @@ export class InputController {
   }
 
   private handleKeyDown = (e: KeyboardEvent) => {
-    // If typing in an input or settings, do not capture
-    if (document.activeElement?.tagName === 'INPUT') return;
+    // If typing in an input or settings, do not capture (unless it is a navigation key)
+    if (
+      document.activeElement?.tagName === 'INPUT' &&
+      e.key !== 'ArrowUp' &&
+      e.key !== 'ArrowDown' &&
+      e.key !== 'ArrowLeft' &&
+      e.key !== 'ArrowRight' &&
+      e.key !== 'Enter' &&
+      e.key !== 'Escape'
+    ) {
+      return;
+    }
+
+    // Handle Escape for pause/back navigation
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      this.handleEscapeKey();
+      return;
+    }
+
+    // Handle Enter for menu activations
+    if (e.key === 'Enter') {
+      if (this.state.screen !== 'playing') {
+        const current = document.activeElement as HTMLElement;
+        if (current && current.classList.contains('focusable')) {
+          e.preventDefault();
+          current.click();
+          return;
+        }
+      }
+    }
 
     const dir = this.keyMap[e.code] || this.keyMap[e.key];
     if (!dir) return;
 
     // Prevent default scrolling for game controls
     e.preventDefault();
+
+    // If we are not currently playing, Arrow keys navigate menu focus!
+    if (this.state.screen !== 'playing') {
+      this.navigateMenuFocus(dir);
+      return;
+    }
 
     const keyId = e.code || e.key;
     if (this.activeKeys.has(keyId)) return;
@@ -249,4 +284,49 @@ export class InputController {
       }
     }
   };
+
+  private navigateMenuFocus(direction: Direction) {
+    const focusables = Array.from(document.querySelectorAll('.focusable')).filter((el) => {
+      const htmlEl = el as HTMLElement;
+      return htmlEl.offsetParent !== null && !htmlEl.closest('.hidden');
+    }) as HTMLElement[];
+
+    if (focusables.length === 0) return;
+
+    const current = document.activeElement as HTMLElement;
+    let idx = focusables.indexOf(current);
+
+    // If active element is not in our list, find the first primary one or first overall
+    if (idx === -1) {
+      const primary = focusables.find((el) => el.classList.contains('primary'));
+      if (primary) {
+        primary.focus();
+        return;
+      }
+      focusables[0].focus();
+      return;
+    }
+
+    if (direction === 'down' || direction === 'right') {
+      const next = idx < focusables.length - 1 ? idx + 1 : 0;
+      focusables[next].focus();
+    } else if (direction === 'up' || direction === 'left') {
+      const prev = idx > 0 ? idx - 1 : focusables.length - 1;
+      focusables[prev].focus();
+    }
+  }
+
+  private handleEscapeKey() {
+    const settingsDialog = document.getElementById('dialog-settings') as HTMLDialogElement;
+    if (settingsDialog && settingsDialog.open) {
+      document.getElementById('btn-settings-close')?.click();
+      return;
+    }
+
+    if (this.state.screen === 'playing') {
+      this.state.setScreen('paused');
+    } else if (this.state.screen === 'paused') {
+      this.state.setScreen('playing');
+    }
+  }
 }

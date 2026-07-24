@@ -22,10 +22,21 @@
   opacity: 0.95;
 }
 
+/* Space holder below the game canvas, only shown when touch controls are shown */
+.dpad-space-holder {
+  height: 120px;
+  flex-shrink: 0;
+  width: 100%;
+  display: none;
+}
+
 /* Show D-pad on devices with touchscreen features */
 @media (pointer: coarse) {
   .touch-controls {
     display: grid;
+  }
+  .dpad-space-holder {
+    display: block;
   }
 }
 
