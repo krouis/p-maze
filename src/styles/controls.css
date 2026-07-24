@@ -1,0 +1,82 @@
+/* Mobile Touch Controls */
+.touch-controls {
+  display: none; /* Controlled by runtime detection and media query */
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--btn-touch-size) * 3 + 12px);
+  height: calc(var(--btn-touch-size) * 3 + 12px);
+  z-index: 8;
+  grid-template-columns: repeat(3, var(--btn-touch-size));
+  grid-template-rows: repeat(3, var(--btn-touch-size));
+  gap: 6px;
+  pointer-events: auto;
+  opacity: 0.55;
+  transition: opacity var(--transition-normal);
+}
+
+/* Make D-pad clearer when touched or hovered */
+.touch-controls:active,
+.touch-controls:focus-within {
+  opacity: 0.95;
+}
+
+/* Show D-pad on devices with touchscreen features */
+@media (pointer: coarse) {
+  .touch-controls {
+    display: grid;
+  }
+}
+
+/* Individual D-pad button styles */
+.d-pad-btn {
+  background-color: var(--floor-color);
+  border: 3px solid var(--text-color);
+  border-radius: var(--border-radius-md);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+  touch-action: none; /* Disable native touch reactions */
+}
+
+/* Button placement on grid */
+.d-pad-btn.up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.d-pad-btn.left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.d-pad-btn.right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.d-pad-btn.down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Pressed visual state */
+.d-pad-btn:active {
+  background-color: var(--wall-color);
+  border-color: var(--wall-color);
+  color: var(--bg-color);
+  transform: scale(0.92);
+}
+
+/* Custom icons in D-pad if using SVGs or arrows */
+.d-pad-btn span {
+  display: block;
+  pointer-events: none;
+}

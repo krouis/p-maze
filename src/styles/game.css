@@ -1,0 +1,241 @@
+/* Typography */
+.game-title {
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--wall-color);
+  text-shadow: 4px 4px 0px var(--wall-highlight);
+  margin-bottom: 4px;
+  letter-spacing: 2px;
+}
+
+.game-subtitle {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0.8;
+}
+
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--wall-color);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--floor-color);
+  padding-bottom: 4px;
+}
+
+/* Retro Pixel Button Styles */
+.btn-pixel {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text-color);
+  background-color: var(--floor-color);
+  border: var(--border-width) solid var(--wall-color);
+  border-radius: var(--border-radius-md);
+  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 4px 4px 0px var(--wall-color);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-normal);
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-pixel:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn-pixel:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--wall-color);
+}
+
+/* Primary/Play button accent */
+.btn-pixel.primary {
+  background-color: var(--wall-color);
+  color: var(--bg-color);
+  border-color: var(--wall-highlight);
+  box-shadow: 4px 4px 0px var(--wall-highlight);
+}
+
+.btn-pixel.primary:hover {
+  background-color: var(--wall-highlight);
+  color: var(--bg-color);
+}
+
+.btn-pixel.primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--wall-highlight);
+}
+
+/* Round icon buttons (sound, pause, settings) */
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 1.25rem;
+  border: 3px solid var(--wall-color);
+  border-radius: var(--border-radius-md);
+  background-color: var(--floor-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0px var(--wall-color);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.btn-icon:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px var(--wall-color);
+}
+
+/* Small secondary actions */
+.btn-secondary {
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-width: 3px;
+}
+
+/* Settings fields */
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+.settings-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Custom Pixel Switch (Checkbox Toggle) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--floor-color);
+  border: 3px solid var(--text-color);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-normal);
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: var(--transition-normal);
+}
+
+input:checked + .slider {
+  border-color: var(--wall-color);
+  background-color: rgba(69, 243, 255, 0.15);
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+  background-color: var(--wall-color);
+}
+
+/* Progress-hold reset progress button */
+.btn-hold-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.btn-hold {
+  border-color: #ff3366;
+  box-shadow: 4px 4px 0px #ff3366;
+}
+
+.btn-hold:active {
+  box-shadow: 2px 2px 0px #ff3366;
+}
+
+.hold-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--floor-color);
+  border: 1px solid var(--text-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hold-progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #ff3366;
+  transition: width 0.1s linear;
+}
+
+/* Privacy info parents section */
+.parents-section {
+  margin-top: 16px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: var(--border-radius-md);
+  padding: 12px;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.parents-section p {
+  margin-bottom: 6px;
+}
+
+/* Character Sprite Box for Start Screen */
+.character-box {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
