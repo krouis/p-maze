@@ -4,7 +4,7 @@
  */
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
+    const register = () => {
       const base = import.meta.env.BASE_URL || '/p-maze/';
       navigator.serviceWorker
         .register(`${base}sw.js`, { scope: base })
@@ -14,6 +14,12 @@ export function registerServiceWorker() {
         .catch((error) => {
           console.error('Service Worker registration failed:', error);
         });
-    });
+    };
+
+    if (document.readyState === 'complete') {
+      register();
+    } else {
+      window.addEventListener('load', register);
+    }
   }
 }
