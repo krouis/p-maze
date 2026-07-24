@@ -44,6 +44,15 @@ export class InputController {
     J: 'down',
     H: 'left',
     L: 'right',
+    // Physical Code Mappings (layout & shift independent)
+    KeyW: 'up',
+    KeyS: 'down',
+    KeyA: 'left',
+    KeyD: 'right',
+    KeyK: 'up',
+    KeyJ: 'down',
+    KeyH: 'left',
+    KeyL: 'right',
   };
 
   constructor(state: GameState, container: HTMLElement) {
@@ -117,14 +126,15 @@ export class InputController {
     // If typing in an input or settings, do not capture
     if (document.activeElement?.tagName === 'INPUT') return;
 
-    const dir = this.keyMap[e.key];
+    const dir = this.keyMap[e.code] || this.keyMap[e.key];
     if (!dir) return;
 
     // Prevent default scrolling for game controls
     e.preventDefault();
 
-    if (this.activeKeys.has(e.key)) return;
-    this.activeKeys.add(e.key);
+    const keyId = e.code || e.key;
+    if (this.activeKeys.has(keyId)) return;
+    this.activeKeys.add(keyId);
 
     // If changing direction or starting fresh
     if (this.currentDirection !== dir) {
@@ -149,10 +159,11 @@ export class InputController {
   };
 
   private handleKeyUp = (e: KeyboardEvent) => {
-    const dir = this.keyMap[e.key];
+    const dir = this.keyMap[e.code] || this.keyMap[e.key];
     if (!dir) return;
 
-    this.activeKeys.delete(e.key);
+    const keyId = e.code || e.key;
+    this.activeKeys.delete(keyId);
 
     // If key released matches active direction, stop repeating
     if (this.currentDirection === dir) {
