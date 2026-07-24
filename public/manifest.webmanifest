@@ -1,0 +1,23 @@
+{
+  "short_name": "p-maze",
+  "name": "Pixel Maze",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./",
+  "background_color": "#0b0c10",
+  "theme_color": "#45f3ff",
+  "display": "standalone",
+  "orientation": "any"
+}

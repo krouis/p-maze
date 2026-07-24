@@ -1,0 +1,72 @@
+/* Accessibility Styles */
+
+/* Screen reader only utility class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Keyboard focus indicators */
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--wall-color) !important;
+  outline-offset: 3px !important;
+}
+
+/* High contrast mode overrides */
+.high-contrast-mode {
+  --bg-color: #000000;
+  --floor-color: #111111;
+  --wall-color: #ffffff;
+  --wall-highlight: #ffffff;
+  --player-color: #ffff00;
+  --exit-color: #00ffff;
+  --text-color: #ffffff;
+  --overlay-bg: rgba(0, 0, 0, 0.95);
+}
+
+.high-contrast-mode .btn-pixel {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  box-shadow: 4px 4px 0px #ffffff !important;
+}
+
+.high-contrast-mode .btn-pixel:active {
+  box-shadow: 2px 2px 0px #ffffff !important;
+}
+
+.high-contrast-mode .btn-pixel.primary {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.high-contrast-mode .d-pad-btn {
+  background-color: #000000 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.high-contrast-mode .d-pad-btn:active {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border-color: #ffff00 !important;
+}
+
+/* Reduced animations overrides */
+.reduced-motion-mode *,
+.reduced-motion-mode *::before,
+.reduced-motion-mode *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0s !important;
+  scroll-behavior: auto !important;
+}

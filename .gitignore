@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.eslintcache
+.parcel-cache
+.cache
+.DS_Store
+*.log
