@@ -38,14 +38,14 @@
   "author": "Khalifa Rouis",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.44.0",
-    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "@playwright/test": "^1.63.0",
+    "@typescript-eslint/eslint-plugin": "^8.70.1",
     "@typescript-eslint/parser": "^8.65.0",
     "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^10.1.8",
     "jsdom": "^24.0.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.9.8",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vitest": "^1.6.0"
